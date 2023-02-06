@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v1
-      - run: make install
+      - run: npm install
       - run: make lint
       - name: run tests
         run: npm test
