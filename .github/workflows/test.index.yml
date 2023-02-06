@@ -1,0 +1,24 @@
+name: Test gendiff
+
+on:
+  - push
+  - pull_request
+
+env:
+  CI: true
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+          cache: 'npm'
+      - run: npm install
+      - run: npm ci
+      - run: npm run lint
+      - name: run tests
+        run: npm test
