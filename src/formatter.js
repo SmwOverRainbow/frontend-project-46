@@ -1,7 +1,6 @@
 const getStyleFormat = (obj1, obj2, diffTree, style) => {
   if (style === 'JSON') {
     const arrOfDiff = Object.entries(diffTree);
-
     const cb = (acc, element) => {
       const [key, status] = element;
       switch (status) {
@@ -22,9 +21,7 @@ const getStyleFormat = (obj1, obj2, diffTree, style) => {
       }
       return acc;
     };
-
     const formatedTree = arrOfDiff.reduce(cb, []);
-
     const result = `{\n${formatedTree.join('')}}`;
     return result;
   }
