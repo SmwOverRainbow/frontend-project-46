@@ -1,5 +1,5 @@
-const getStyleFormat = (obj1, obj2, diffTree, styleFormat) => {
-  if (styleFormat === 'JSON') {
+const getStyleFormat = (obj1, obj2, diffTree, style) => {
+  if (style === 'JSON') {
     const arrOfDiff = Object.entries(diffTree);
 
     const cb = (acc, element) => {
