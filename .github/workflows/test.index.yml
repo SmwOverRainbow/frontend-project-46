@@ -1,4 +1,4 @@
-name: Test gendiff
+name: Test_gendiff
 
 on:
   - push
@@ -11,6 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v1
+        with: 
+          node-version: 19.3.0
       - run: npm install
       - run: make lint
       - name: run tests
