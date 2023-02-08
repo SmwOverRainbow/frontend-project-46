@@ -15,8 +15,8 @@ const genDiff = (filePath1, filePath2, format = 'stylish') => {
   const obj2 = getObject(fileContent2, extention2);
 
   const diffTree = getDiffTree(obj1, obj2);
-  const result = getStyleFormat(obj1, obj2, diffTree, format);
-  // console.log(result);
+  const result = getStyleFormat(diffTree, format);
+  console.log(result);
   return result;
 };
 

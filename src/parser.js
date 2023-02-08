@@ -8,7 +8,7 @@ const getObject = (fileContent, extention) => {
     return yaml.load(fileContent);
   }
 
-  return 'oops';
+  return 'oops! Unexprcted format';
 };
 
 export default getObject;
