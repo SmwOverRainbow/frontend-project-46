@@ -6,5 +6,8 @@
 
 
 
-ascinema plain files https://asciinema.org/a/RgwnBeoPL9SkGkDUzNzZmnMZk
-ascinema nested files https://asciinema.org/a/mJAV7X2gX5JJMwcSSW29OJMmL 
+[ascinema plain objects 'stylish' format](https://asciinema.org/a/RgwnBeoPL9SkGkDUzNzZmnMZk)
+
+ascinema nested objects 'stylish' format https://asciinema.org/a/mJAV7X2gX5JJMwcSSW29OJMmL 
+
+ascinema nested objects 'plain' format https://asciinema.org/a/diFzqghm5vOoGWhuKfXCHflZW
