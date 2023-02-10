@@ -17,8 +17,3 @@ program
 program.parse(process.argv);
 
 if (!program.args.length) program.help();
-
-// const opts = program.opts();
-
-// console.log(opts);
-// console.log(program.args);
