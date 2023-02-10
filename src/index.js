@@ -2,7 +2,7 @@ import { readFileSync } from 'fs';
 import { extname, resolve } from 'path';
 import { cwd } from 'process';
 import getObject from './parser.js';
-import getStyleFormat from './formatter.js';
+import getFormat from './formatter/index.js';
 import getDiffTree from './getDiff.js';
 
 const genDiff = (filePath1, filePath2, format = 'stylish') => {
@@ -15,7 +15,7 @@ const genDiff = (filePath1, filePath2, format = 'stylish') => {
   const obj2 = getObject(fileContent2, extention2);
 
   const diffTree = getDiffTree(obj1, obj2);
-  const result = getStyleFormat(diffTree, format);
+  const result = getFormat(diffTree, format);
   console.log(result);
   return result;
 };
