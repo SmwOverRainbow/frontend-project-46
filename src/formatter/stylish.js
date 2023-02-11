@@ -11,11 +11,11 @@ const stringify = (value, depth = 1) => {
     }
     const objToArr = Object.entries(node);
     const elements = objToArr.map(([key, valueEl]) => {
-      let newValue = valueEl;
       if (typeof valueEl === 'object') {
-        newValue = iter(valueEl, depthIter + 1);
+        const newValue = iter(valueEl, depthIter + 1);
+        return `${iterIndent}  ${key}: ${newValue}`;
       }
-      return `${iterIndent}  ${key}: ${newValue}`;
+      return `${iterIndent}  ${key}: ${valueEl}`;
     });
 
     const closingIndent = getClosingIndent(depthIter);
@@ -51,7 +51,6 @@ const getStylishFormat = (diffTree) => {
   };
 
   const stylishTree = iter(diffTree);
-  // console.log(stylishTree);
   return stylishTree;
 };
 

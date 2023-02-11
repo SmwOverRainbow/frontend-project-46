@@ -21,7 +21,7 @@ const getDiffTree = (obj1, obj2) => {
     }
     return { status: 'added', key: [key], value: obj2[key] };
   });
-  // console.log(diffTree);
+
   return diffTree;
 };
 
