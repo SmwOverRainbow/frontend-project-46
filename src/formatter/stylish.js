@@ -44,7 +44,7 @@ const getStylishFormat = (diffTree) => {
             `${iterIndent}+ ${node.key}: ${stringify(node.value2, depth + 1)}`];
         case 'unchanged':
           return `${iterIndent}  ${node.key}: ${stringify(node.value, depth + 1)}`;
-        default: throw new Error('oops!');
+        default: throw new Error(`Unexpected status: ${node.status}`);
       }
     });
     return `{\n${result.join('\n')}\n${closingIndent}}`;

@@ -12,7 +12,7 @@ const getFormat = (diffTree, format) => {
   if (format === 'json') {
     return getJsonStyle(diffTree);
   }
-  throw new Error(`oops! Unexpected format: ${format}`);
+  throw new Error(`Unexpected format: ${format}`);
 };
 
 export default getFormat;
