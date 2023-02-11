@@ -18,7 +18,7 @@
 `gendiff <filepath1>filename1.json <filepath2>filename2.yaml`
     where <filepath> - absolute or relative file path
 
-### Description (RU) ### 
+### Description ### 
 
 Gendiff - is a program that determines the difference between two data structures. Utility can work with json and yaml/yml files. By default using 'stylish' output format of difference. For another output format, use the flag `-f` or `--format` with next values:
 `stylish` - using by default
