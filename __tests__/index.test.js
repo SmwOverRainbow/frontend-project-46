@@ -16,26 +16,26 @@ test('diff JSON files with stylish format', () => {
   expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.json', 'stylish')).toEqual(expectedValueStylish);
 });
 test('diff YAML files with stylish format', () => {
-  expect(genDiff('__fixtures__/file1.yaml', '__fixtures__/file2.yaml', 'stylish')).toEqual(expectedValueStylish);
+  expect(genDiff('__fixtures__/file1.yml', '__fixtures__/file2.yaml', 'stylish')).toEqual(expectedValueStylish);
 });
 
 test('diff JSON files with plain format', () => {
   expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.json', 'plain')).toEqual(expectedValuePlain);
 });
 test('diff YAML files with plain format', () => {
-  expect(genDiff('__fixtures__/file1.yaml', '__fixtures__/file2.yaml', 'plain')).toEqual(expectedValuePlain);
+  expect(genDiff('__fixtures__/file1.yml', '__fixtures__/file2.yaml', 'plain')).toEqual(expectedValuePlain);
 });
 
 test('diff JSON files with json format', () => {
   expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.json', 'json')).toEqual(expectedValueJson);
 });
 test('diff YAML files with json format', () => {
-  expect(genDiff('__fixtures__/file1.yaml', '__fixtures__/file2.yaml', 'json')).toEqual(expectedValueJson);
+  expect(genDiff('__fixtures__/file1.yml', '__fixtures__/file2.yaml', 'json')).toEqual(expectedValueJson);
 });
 
 const cases = [
   ['__fixtures__/file1.json', '__fixtures__/file2.json', expectedValueStylish],
-  ['__fixtures__/file1.yaml', '__fixtures__/file2.yaml', expectedValueStylish],
+  ['__fixtures__/file1.yml', '__fixtures__/file2.yaml', expectedValueStylish],
 ];
 
 describe('default format', () => {

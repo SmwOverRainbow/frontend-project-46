@@ -6,6 +6,8 @@ const getObject = (fileContent, fileType) => {
       return JSON.parse(fileContent);
     case 'YAML':
       return yaml.load(fileContent);
+    case 'YML':
+      return yaml.load(fileContent);
     default:
       throw new Error(`Unexprcted type: ${fileType}`);
   }
