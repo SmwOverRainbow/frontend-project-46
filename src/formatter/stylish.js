@@ -6,22 +6,14 @@ const getClosingIndent = (depth, intend = 4) => ' '.repeat(intend * depth - inte
 const stringify = (value, depth = 1) => {
   const iter = (node, depthIter) => {
     const iterIndent = getCurrentIndent(depthIter);
-    if (typeof value !== 'object' || value === null) {
-      return `${value}`;
+    if (typeof node !== 'object' || node === null) {
+      return `${node}`;
     }
     const objToArr = Object.entries(node);
-    const elements = objToArr.map(([key, valueEl]) => {
-      if (typeof valueEl === 'object') {
-        const newValue = iter(valueEl, depthIter + 1);
-        return `${iterIndent}  ${key}: ${newValue}`;
-      }
-      return `${iterIndent}  ${key}: ${valueEl}`;
-    });
+    const elements = objToArr.map(([key, valueEl]) => `${iterIndent}  ${key}: ${iter(valueEl, depthIter + 1)}`);
 
     const closingIndent = getClosingIndent(depthIter);
-    const jsonFormat = elements.join('\n');
-    const result = `{\n${jsonFormat}\n${closingIndent}}`;
-    return result;
+    return ['{', ...elements, `${closingIndent}}`].join('\n');
   };
   return iter(value, depth);
 };
@@ -47,11 +39,10 @@ const getStylishFormat = (diffTree) => {
         default: throw new Error(`Unexpected status: ${node.status}`);
       }
     });
-    return `{\n${result.join('\n')}\n${closingIndent}}`;
+    return ['{', ...result, `${closingIndent}}`].join('\n');
   };
 
-  const stylishTree = iter(diffTree);
-  return stylishTree;
+  return iter(diffTree);
 };
 
 export default getStylishFormat;

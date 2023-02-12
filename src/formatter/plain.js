@@ -10,25 +10,24 @@ const getValue = (value) => {
 
 const getPlainFormat = (diffTree) => {
   const iter = (tree, path = '') => {
-    const properties = tree.map((node) => {
-      const currentPath = `${path}${node.key}`;
-      if (node.status === 'nested') {
-        const nestedPath = `${currentPath}.`;
-        return iter(node.children, nestedPath);
-      }
-      if (node.status === 'changed') {
-        return `Property '${currentPath}' was updated. From ${getValue(node.value1)} to ${getValue(node.value2)}`;
-      }
-      if (node.status === 'added') {
-        return `Property '${currentPath}' was added with value: ${getValue(node.value)}`;
-      }
-      if (node.status === 'deleted') {
-        return `Property '${currentPath}' was removed`;
-      }
-      return '';
-    });
-    const result = properties.filter((el) => el !== '');
-    return result.join('\n');
+    const properties = tree
+      .filter((el) => el.status !== 'unchanged')
+      .map((node) => {
+        const currentPath = `${path}${node.key}`;
+        switch (node.status) {
+          case 'nested':
+            return iter(node.children, `${currentPath}.`);
+          case 'changed':
+            return `Property '${currentPath}' was updated. From ${getValue(node.value1)} to ${getValue(node.value2)}`;
+          case 'added':
+            return `Property '${currentPath}' was added with value: ${getValue(node.value)}`;
+          case 'deleted':
+            return `Property '${currentPath}' was removed`;
+          default:
+            throw new Error(`Unknowing status: ${node.status}`);
+        }
+      });
+    return properties.join('\n');
   };
 
   const plainDiff = iter(diffTree);
