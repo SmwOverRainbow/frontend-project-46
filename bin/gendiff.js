@@ -11,8 +11,7 @@ program
   .argument('<filePath1>')
   .argument('<filePath2>')
   .action((filePath1, filePath2) => {
-    const outputFormat = program.opts().format;
-    genDiff(filePath1, filePath2, outputFormat);
+    console.log(genDiff(filePath1, filePath2, program.opts().format));
   });
 
 program.parse(process.argv);

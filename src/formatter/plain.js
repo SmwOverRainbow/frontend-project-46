@@ -30,8 +30,7 @@ const getPlainFormat = (diffTree) => {
     return properties.join('\n');
   };
 
-  const plainDiff = iter(diffTree);
-  return plainDiff;
+  return iter(diffTree);
 };
 
 export default getPlainFormat;
