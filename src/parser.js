@@ -1,7 +1,7 @@
 import yaml from 'js-yaml';
 
-const getObject = (fileContent, fileType) => {
-  switch (fileType) {
+const getParse = (fileContent, format) => {
+  switch (format) {
     case 'JSON':
       return JSON.parse(fileContent);
     case 'YAML':
@@ -9,8 +9,8 @@ const getObject = (fileContent, fileType) => {
     case 'YML':
       return yaml.load(fileContent);
     default:
-      throw new Error(`Unexprcted type: ${fileType}`);
+      throw new Error(`Unexprcted type: ${format}`);
   }
 };
 
-export default getObject;
+export default getParse;
